@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dunkelflauten"
+version = "0.1.0"
+description = "Analysis of 'Dunkelflaute' periods (low renewable share) in the German and European power grid, based on Energy-Charts data."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "klacol" }]
+dependencies = [
+    "requests>=2.31",
+    "tzdata>=2024.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/klacol/Dunkelflauten"
+DataSource = "https://api.energy-charts.info/"
+
+[project.scripts]
+dunkelflauten = "dunkelflauten.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
