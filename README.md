@@ -11,30 +11,32 @@ supply – in the German and European power grid, based on public data from the
 
 ## What counts as a Dunkelflaute here?
 
-This project defines two event categories, based on the **daily average share
-of renewable energy in the load** (`ren_share_daily_avg` from Energy-Charts):
+This project defines two **adjacent, non-overlapping** event categories, based
+on the **daily average share of renewable energy in the load**
+(`ren_share_daily_avg` from Energy-Charts). Every day belongs to at most one
+category, so the two event lists can be counted or summed without double-
+counting the same calendar days:
 
-### Category A – severe Dunkelflaute (< 40 %)
+| Category | Renewable share band | Label |
+| --- | --- | --- |
+| A – severe | 0 % ≤ share < 40 % | `A{x}` |
+| B – moderate | 40 % ≤ share < 60 % | `B{x}` |
 
-- An event starts as soon as the renewable share drops below **40 %** and lasts
-  for **more than one day** (i.e. at least 2 consecutive days).
-- `x` = the number of consecutive days below 40 % → event label **`A{x}`**
-  (e.g. `A8` = 8 consecutive days below 40 %).
-- A single day below the threshold does **not** count as an event (`A1` does
-  not exist), because a one-day dip can typically be buffered by batteries and
+- An event starts as soon as the renewable share enters a band and lasts for
+  **more than one day** (i.e. at least 2 consecutive days *within the same
+  band*). `x` = the number of consecutive days in that band, e.g. `A8` = 8
+  consecutive days with a share below 40 %.
+- A single day inside a band does **not** count as an event (`A1`/`B1` do not
+  exist), because a one-day dip can typically be buffered by batteries and
   other short-term storage.
 - For the same reason, the **first day** of every event is assumed to be
   bufferable by batteries. The remaining `x - 1` days are the *critical days*
   that storage cannot cover and that require other measures (e.g. dispatchable
   power plants, imports, demand response).
-
-### Category B – moderate Dunkelflaute (< 60 %)
-
-- Same rules as category A, but with a **60 %** threshold → label **`B{x}`**.
-- Category B is **not purely additive** to category A: a severe `A` event is
-  often just the low point nested inside a wider, less severe `B` event. This
-  tool detects that nesting explicitly (`contains_category_a` /
-  `nested_event_ids` in the data schema) instead of just summing counts.
+- If a period dips from moderate (B) into severe (A) and back, it is reported
+  as separate adjacent A/B events rather than one event nested inside another
+  - this keeps the totals per category unambiguous. A day with a share of
+  exactly 40 % (or 60 %) belongs to the upper band (B, or neither, respectively).
 
 ### Energy severity (not just day count)
 
@@ -123,10 +125,20 @@ subsequent runs – only the current, still-growing year is re-fetched every
 time. Pass `--force` to re-fetch and overwrite past years too (e.g. after
 Energy-Charts revises historical values).
 
-## Validation
+## Yearly summary
 
-For Germany, 2025-01-01 to 2025-10-21, this tool currently finds 10 category-A
-events (`1×A8, 1×A6, 3×A5, 2×A3, 3×A2`), very close to the manually derived
-reference of 11 events (`1×A8, 1×A6, 3×A5, 2×A3, 4×A2`) that motivated this
-project. Small differences are expected since Energy-Charts occasionally
-revises historical values after publication.
+The table below summarizes the number of Dunkelflaute events per calendar year
+for Germany. The category columns are mutually exclusive: A covers renewable
+shares from 0 % to below 40 %, while B covers 40 % to below 60 %. `Total` is
+the row sum of A and B. The `Load` column is intentionally left for manual
+entry after a year has ended, for example with the annual peak load or another
+chosen demand metric.
+
+| Year | Dunkelflauten A (0-40 %) | Dunkelflauten B (40-60 %) | Total Dunkelflauten |
+| --- | :---: | :---: | :---: |
+| 2025 | 16 | 37 | 53 |
+| 2026* | 4 | 23 | 27 |
+
+\* 2026 is the current, incomplete year and will change when new Energy-Charts
+data becomes available. Update the table after each completed year and record
+the chosen load metric and unit in this column.

@@ -1,5 +1,5 @@
-id,country,category,label,threshold_percent,start_date,end_date,length_days,battery_bufferable_days,critical_days,min_renewable_share_percent,avg_renewable_share_percent,contains_category_a,nested_event_ids,avg_load_gw,avg_residual_load_gw,peak_residual_load_gw,residual_energy_gwh
-DE-A-2026-01,de,A,A2,40.0,2026-01-05,2026-01-06,2,1,1,28.4,31.7,False,,61.14,48.45,59.15,2325.6
-DE-A-2026-02,de,A,A2,40.0,2026-01-26,2026-01-27,2,1,1,35.9,36.45,False,,66.6,48.9,61.5,2347.4
-DE-A-2026-03,de,A,A2,40.0,2026-02-06,2026-02-07,2,1,1,31.0,33.65,False,,60.63,47.26,61.95,2268.7
-DE-A-2026-04,de,A,A2,40.0,2026-04-13,2026-04-14,2,1,1,35.7,37.4,False,,56.6,42.01,56.33,2016.6
+id,country,category,label,band_lower_percent,band_upper_percent,start_date,end_date,length_days,battery_bufferable_days,critical_days,min_renewable_share_percent,avg_renewable_share_percent,avg_load_gw,avg_residual_load_gw,peak_residual_load_gw,residual_energy_gwh
+DE-A-2026-01,de,A,A2,0.0,40.0,2026-01-05,2026-01-06,2,1,1,28.4,31.7,61.14,48.45,59.15,2325.6
+DE-A-2026-02,de,A,A2,0.0,40.0,2026-01-26,2026-01-27,2,1,1,35.9,36.45,66.6,48.9,61.5,2347.4
+DE-A-2026-03,de,A,A2,0.0,40.0,2026-02-06,2026-02-07,2,1,1,31.0,33.65,60.63,47.26,61.95,2268.7
+DE-A-2026-04,de,A,A2,0.0,40.0,2026-04-13,2026-04-14,2,1,1,35.7,37.4,56.6,42.01,56.33,2016.6

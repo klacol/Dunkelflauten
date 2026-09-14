@@ -22,13 +22,13 @@ from datetime import date
 from pathlib import Path
 
 from .api_client import get_daily_renewable_share_range
-from .classification import annotate_nested_a_events, classify_events, summarize
+from .classification import classify_events, summarize
 from .config import DEFAULT_CONFIG_PATH, load_config
 from .energy_analysis import annotate_energy_metrics, fetch_power_series
 from .export import write_csv, write_json
 
-CATEGORY_A_THRESHOLD_PERCENT = 40.0
-CATEGORY_B_THRESHOLD_PERCENT = 60.0
+CATEGORY_A_BAND_PERCENT = (0.0, 40.0)
+CATEGORY_B_BAND_PERCENT = (40.0, 60.0)
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -52,20 +52,19 @@ def _process_year(country: str, year_start: date, year_end: date, year_dir: Path
         print(f"  no renewable-share data available for {country} between {year_start} and {year_end}, skipping")
         return
 
-    a_events = classify_events(daily_shares, CATEGORY_A_THRESHOLD_PERCENT, "A", country)
-    b_events = classify_events(daily_shares, CATEGORY_B_THRESHOLD_PERCENT, "B", country)
+    a_events = classify_events(daily_shares, *CATEGORY_A_BAND_PERCENT, "A", country)
+    b_events = classify_events(daily_shares, *CATEGORY_B_BAND_PERCENT, "B", country)
 
     power_series = fetch_power_series(country, year_start, year_end)
     a_events = annotate_energy_metrics(a_events, power_series)
     b_events = annotate_energy_metrics(b_events, power_series)
-    b_events = annotate_nested_a_events(a_events, b_events)
 
     write_json(a_events, year_dir / "dunkelflauten_A.json")
     write_csv(a_events, year_dir / "dunkelflauten_A.csv")
     write_json(b_events, year_dir / "dunkelflauten_B.json")
     write_csv(b_events, year_dir / "dunkelflauten_B.csv")
 
-    for label, events in (("A (< 40 %)", a_events), ("B (< 60 %)", b_events)):
+    for label, events in (("A ([0, 40) %)", a_events), ("B ([40, 60) %)", b_events)):
         stats = summarize(events)
         print(f"  Category {label}: {stats['total_events']} events")
         for length, count in stats["counts_by_length"].items():

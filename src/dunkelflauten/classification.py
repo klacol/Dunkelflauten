@@ -11,26 +11,26 @@ MIN_EVENT_LENGTH_DAYS = 2
 """A single day below the threshold can be buffered by batteries and does not count (no 'A1')."""
 
 
-def _consecutive_runs_below_threshold(
-    daily_shares: list[DailyShare], threshold_percent: float
+def _consecutive_runs_in_band(
+    daily_shares: list[DailyShare], lower_percent: float, upper_percent: float
 ) -> list[list[DailyShare]]:
     """Split daily_shares (assumed date-sorted, possibly with gaps) into runs of
-    consecutive calendar days where the share is strictly below the threshold.
-    A gap in the date sequence (missing day) breaks a run.
+    consecutive calendar days where the share falls into [lower_percent, upper_percent).
+    A gap in the date sequence (missing day), or a day outside the band, breaks a run.
     """
     runs: list[list[DailyShare]] = []
     current: list[DailyShare] = []
 
     for entry in daily_shares:
-        is_below = entry.renewable_share_percent < threshold_percent
+        in_band = lower_percent <= entry.renewable_share_percent < upper_percent
         continues_run = (
             current
-            and is_below
+            and in_band
             and (entry.day - current[-1].day).days == 1
         )
-        if is_below and continues_run:
+        if in_band and continues_run:
             current.append(entry)
-        elif is_below:
+        elif in_band:
             if current:
                 runs.append(current)
             current = [entry]
@@ -47,12 +47,18 @@ def _consecutive_runs_below_threshold(
 
 def classify_events(
     daily_shares: list[DailyShare],
-    threshold_percent: float,
+    lower_percent: float,
+    upper_percent: float,
     category: str,
     country: str,
 ) -> list[DunkelflauteEvent]:
-    """Detect Dunkelflaute events of one category (A or B) from daily share data."""
-    runs = _consecutive_runs_below_threshold(daily_shares, threshold_percent)
+    """Detect Dunkelflaute events of one category (A or B) from daily share data.
+
+    A and B are adjacent, non-overlapping bands (e.g. A = [0, 40), B = [40, 60)),
+    so every day belongs to at most one category and the two event lists can be
+    counted/summed without double-counting the same calendar days.
+    """
+    runs = _consecutive_runs_in_band(daily_shares, lower_percent, upper_percent)
 
     events: list[DunkelflauteEvent] = []
     sequence = 0
@@ -68,7 +74,8 @@ def classify_events(
                 id=f"{country.upper()}-{category}-{run[0].day.year}-{sequence:02d}",
                 country=country,
                 category=category,
-                threshold_percent=threshold_percent,
+                band_lower_percent=lower_percent,
+                band_upper_percent=upper_percent,
                 start_date=run[0].day,
                 end_date=run[-1].day,
                 length_days=length_days,
@@ -79,37 +86,6 @@ def classify_events(
             )
         )
     return events
-
-
-def annotate_nested_a_events(
-    a_events: list[DunkelflauteEvent], b_events: list[DunkelflauteEvent]
-) -> list[DunkelflauteEvent]:
-    """Mark each B event that fully contains one or more A events.
-
-    Category B (< 60 %) is not purely additive to category A (< 40 %): a
-    severe A event is often a sub-period of a wider, less severe B event.
-    Returns a new list of B events with contains_category_a / nested_event_ids set.
-    """
-    annotated: list[DunkelflauteEvent] = []
-    for b_event in b_events:
-        nested = [
-            a_event.id
-            for a_event in a_events
-            if a_event.start_date >= b_event.start_date and a_event.end_date <= b_event.end_date
-        ]
-        if nested:
-            annotated.append(
-                DunkelflauteEvent(
-                    **{
-                        **b_event.__dict__,
-                        "contains_category_a": True,
-                        "nested_event_ids": nested,
-                    }
-                )
-            )
-        else:
-            annotated.append(b_event)
-    return annotated
 
 
 def summarize(events: list[DunkelflauteEvent]) -> dict:
