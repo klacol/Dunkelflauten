@@ -128,15 +128,14 @@ Energy-Charts revises historical values).
 ## Yearly summary DE
 
 The table below summarizes the number of Dunkelflaute events per calendar year
-for Germany. The category columns are mutually exclusive: A covers renewable
-shares from 0 % to below 40 %, while B covers 40 % to below 60 %. `Total` is
+for Germany. The category columns are mutually exclusive: `A` covers renewable
+shares from 0 % to below 40 %, while `B` covers 40 % to below 60 %. `Total` is
 the row sum of A and B. 
 
 | Year | Dunkelflauten A (0-40 %) | Dunkelflauten B (40-60 %) | Total Dunkelflauten |
 | --- | :---: | :---: | :---: |
-| 2025 | 16 | 37 | 53 |
-| 2026* | 4 | 23 | 27 |
+| 2025 | [16](data/de/2025/dunkelflauten_A.csv) | [37](data/de/2025/dunkelflauten_B.csv) | 53 |
+| 2026* | [4](data/de/2026/dunkelflauten_A.csv) | [23](data/de/2026/dunkelflauten_B.csv) | 27 |
 
 \* 2026 is the current, incomplete year and will change when new Energy-Charts
-data becomes available. Update the table after each completed year and record
-the chosen load metric and unit in this column.
+data becomes available.
