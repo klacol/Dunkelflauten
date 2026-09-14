@@ -125,14 +125,12 @@ subsequent runs – only the current, still-growing year is re-fetched every
 time. Pass `--force` to re-fetch and overwrite past years too (e.g. after
 Energy-Charts revises historical values).
 
-## Yearly summary
+## Yearly summary DE
 
 The table below summarizes the number of Dunkelflaute events per calendar year
 for Germany. The category columns are mutually exclusive: A covers renewable
 shares from 0 % to below 40 %, while B covers 40 % to below 60 %. `Total` is
-the row sum of A and B. The `Load` column is intentionally left for manual
-entry after a year has ended, for example with the annual peak load or another
-chosen demand metric.
+the row sum of A and B. 
 
 | Year | Dunkelflauten A (0-40 %) | Dunkelflauten B (40-60 %) | Total Dunkelflauten |
 | --- | :---: | :---: | :---: |
