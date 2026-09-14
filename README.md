@@ -139,3 +139,12 @@ the row sum of A and B.
 
 \* 2026 is the current, incomplete year and will change when new Energy-Charts
 data becomes available.
+
+## Limits
+
+This project analyses existing data only. It does not take into account:
+
+- Regional differences in grid transmission capacity.
+- Possible solutions such as pooled batteries or regionalized gas plants.
+- The dynamics of deferrable loads enabled by increased use of smart meters.
+- Many other technical, economic and regulatory factors.
