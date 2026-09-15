@@ -428,12 +428,12 @@
     "length_days": 4,
     "battery_bufferable_days": 1,
     "critical_days": 3,
-    "min_renewable_share_percent": 49.1,
-    "avg_renewable_share_percent": 52.05,
-    "avg_load_gw": 49.2,
-    "avg_residual_load_gw": 29.37,
+    "min_renewable_share_percent": 48.9,
+    "avg_renewable_share_percent": 51.95,
+    "avg_load_gw": 49.22,
+    "avg_residual_load_gw": 29.42,
     "peak_residual_load_gw": 54.33,
-    "residual_energy_gwh": 2819.1,
+    "residual_energy_gwh": 2824.6,
     "label": "B4"
   }
 ]

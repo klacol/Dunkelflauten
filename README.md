@@ -134,6 +134,11 @@ the row sum of A and B.
 
 | Year | Dunkelflauten A (0-40 %) | Dunkelflauten B (40-60 %) | Total Dunkelflauten |
 | --- | :---: | :---: | :---: |
+| 2020 | [24](data/de/2020/dunkelflauten_A.csv) | [44](data/de/2020/dunkelflauten_B.csv) | 68 |
+| 2021 | [38](data/de/2021/dunkelflauten_A.csv) | [34](data/de/2021/dunkelflauten_B.csv) | 72 |
+| 2022 | [19](data/de/2022/dunkelflauten_A.csv) | [35](data/de/2022/dunkelflauten_B.csv) | 54 |
+| 2023 | [17](data/de/2023/dunkelflauten_A.csv) | [31](data/de/2023/dunkelflauten_B.csv) | 48 |
+| 2024 | [11](data/de/2024/dunkelflauten_A.csv) | [41](data/de/2024/dunkelflauten_B.csv) | 52 |
 | 2025 | [16](data/de/2025/dunkelflauten_A.csv) | [37](data/de/2025/dunkelflauten_B.csv) | 53 |
 | 2026* | [4](data/de/2026/dunkelflauten_A.csv) | [23](data/de/2026/dunkelflauten_B.csv) | 27 |
 
