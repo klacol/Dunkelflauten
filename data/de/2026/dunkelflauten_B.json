@@ -262,7 +262,7 @@
     "avg_load_gw": 45.52,
     "avg_residual_load_gw": 25.98,
     "peak_residual_load_gw": 51.26,
-    "residual_energy_gwh": 1246.9,
+    "residual_energy_gwh": 1246.8,
     "label": "B2"
   },
   {
@@ -435,5 +435,24 @@
     "peak_residual_load_gw": 54.33,
     "residual_energy_gwh": 2824.6,
     "label": "B4"
+  },
+  {
+    "id": "DE-B-2026-24",
+    "country": "de",
+    "category": "B",
+    "band_lower_percent": 40.0,
+    "band_upper_percent": 60.0,
+    "start_date": "2026-09-15",
+    "end_date": "2026-09-16",
+    "length_days": 2,
+    "battery_bufferable_days": 1,
+    "critical_days": 1,
+    "min_renewable_share_percent": 51.7,
+    "avg_renewable_share_percent": 53.7,
+    "avg_load_gw": 55.54,
+    "avg_residual_load_gw": 31.26,
+    "peak_residual_load_gw": 51.23,
+    "residual_energy_gwh": 1320.7,
+    "label": "B2"
   }
 ]

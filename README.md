@@ -140,7 +140,7 @@ the row sum of A and B.
 | 2023 | [17](data/de/2023/dunkelflauten_A.csv) | [31](data/de/2023/dunkelflauten_B.csv) | 48 |
 | 2024 | [11](data/de/2024/dunkelflauten_A.csv) | [41](data/de/2024/dunkelflauten_B.csv) | 52 |
 | 2025 | [16](data/de/2025/dunkelflauten_A.csv) | [37](data/de/2025/dunkelflauten_B.csv) | 53 |
-| 2026* | [4](data/de/2026/dunkelflauten_A.csv) | [23](data/de/2026/dunkelflauten_B.csv) | 27 |
+| 2026* | [4](data/de/2026/dunkelflauten_A.csv) | [24](data/de/2026/dunkelflauten_B.csv) | 27 |
 
 \* 2026 is the current, incomplete year and will change when new Energy-Charts
 data becomes available.
