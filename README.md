@@ -62,6 +62,7 @@ generation`, GET `/public_power`) observed during it:
 | [src/dunkelflauten/classification.py](src/dunkelflauten/classification.py) | Detection/classification algorithm for categories A and B |
 | [src/dunkelflauten/energy_analysis.py](src/dunkelflauten/energy_analysis.py) | Load / residual-load / residual-energy (GWh) metrics per event |
 | [src/dunkelflauten/export.py](src/dunkelflauten/export.py) | Writes events to JSON and CSV |
+| [src/dunkelflauten/charts.py](src/dunkelflauten/charts.py) | Generates yearly development charts (PNG) from the CSV files, for embedding in this README |
 | [src/dunkelflauten/cli.py](src/dunkelflauten/cli.py) | Command line script tying it all together |
 | [src/dunkelflauten/config.py](src/dunkelflauten/config.py) | Loads the persisted query range from [dunkelflauten.config.json](dunkelflauten.config.json) |
 | [data/\<country\>/\<year\>/](data/) | Generated JSON + CSV files, one calendar year per folder |
@@ -144,6 +145,25 @@ the row sum of A and B.
 
 \* 2026 is the current, incomplete year and will change when new Energy-Charts
 data becomes available.
+
+## Charts
+
+Yearly development, stacked by category (A = severe, B = moderate), generated
+from the CSV files under `data/` via
+[src/dunkelflauten/charts.py](src/dunkelflauten/charts.py). The charts are
+regenerated automatically as the last step of every `dunkelflauten.cli` run
+(e.g. the "Dunkelflauten: fetch & classify" task), so they always reflect the
+latest data. To regenerate them on their own:
+
+```powershell
+.\.venv\Scripts\python.exe -m dunkelflauten.charts
+```
+
+![Number of Dunkelflauten per year](docs/charts/dunkelflauten_events_per_year.png)
+
+![Critical days per year](docs/charts/dunkelflauten_critical_days_per_year.png)
+
+![Residual load energy per year](docs/charts/dunkelflauten_residual_energy_per_year.png)
 
 ## Limits
 

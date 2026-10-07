@@ -22,6 +22,7 @@ from datetime import date
 from pathlib import Path
 
 from .api_client import get_daily_renewable_share_range
+from .charts import generate_charts
 from .classification import classify_events, summarize
 from .config import DEFAULT_CONFIG_PATH, load_config
 from .energy_analysis import annotate_energy_metrics, fetch_power_series
@@ -91,6 +92,11 @@ def run(country: str, start: date, end: date, outdir: Path, force: bool = False)
         _process_year(country, year_start, year_end, year_dir)
 
     print(f"\nData written under {outdir.resolve() / country}")
+
+    chart_paths = generate_charts(outdir, Path("docs/charts"), country)
+    print("Charts regenerated:")
+    for path in chart_paths:
+        print(f"  {path}")
 
 
 def main(argv: list[str] | None = None) -> None:

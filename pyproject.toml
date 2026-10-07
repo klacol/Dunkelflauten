@@ -13,6 +13,7 @@ authors = [{ name = "klacol" }]
 dependencies = [
     "requests>=2.31",
     "tzdata>=2024.1",
+    "matplotlib>=3.8",
 ]
 
 [project.urls]
@@ -21,6 +22,7 @@ DataSource = "https://api.energy-charts.info/"
 
 [project.scripts]
 dunkelflauten = "dunkelflauten.cli:main"
+dunkelflauten-charts = "dunkelflauten.charts:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.4"]
