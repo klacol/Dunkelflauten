@@ -60,8 +60,8 @@ def _stacked_bar_chart(
     path: Path,
 ) -> None:
     fig, ax = plt.subplots(figsize=(8, 4.5))
-    ax.bar(years, a_values, label="A (0-40 %)", color=CATEGORY_COLORS["A"])
-    ax.bar(years, b_values, bottom=a_values, label="B (40-60 %)", color=CATEGORY_COLORS["B"])
+    ax.bar(years, a_values, label="A: severe (0-40 %)", color=CATEGORY_COLORS["A"])
+    ax.bar(years, b_values, bottom=a_values, label="B: moderate (40-60 %)", color=CATEGORY_COLORS["B"])
     ax.set_title(title)
     ax.set_xlabel("Year")
     ax.set_ylabel(ylabel)
