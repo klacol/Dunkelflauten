@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+from datetime import datetime
 from pathlib import Path
 
 import matplotlib
@@ -67,7 +68,19 @@ def _stacked_bar_chart(
     ax.set_xticks(years)
     ax.legend()
     ax.grid(axis="y", alpha=0.3)
-    fig.tight_layout()
+    
+    # Add creation date in German format (TT.MM.JJJJ) and attribution below the chart
+    creation_date = datetime.now().strftime("%d.%m.%Y")
+    fig.text(
+        0.5, 0.01,
+        f"As of: {creation_date} | @klacol",
+        ha="center",
+        va="bottom",
+        fontsize=9,
+        alpha=0.7
+    )
+    
+    fig.tight_layout(rect=[0, 0.03, 1, 1])
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, dpi=150)
     plt.close(fig)
