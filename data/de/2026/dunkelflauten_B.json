@@ -372,11 +372,11 @@
     "battery_bufferable_days": 1,
     "critical_days": 1,
     "min_renewable_share_percent": 49.2,
-    "avg_renewable_share_percent": 52.7,
-    "avg_load_gw": 48.54,
-    "avg_residual_load_gw": 28.7,
+    "avg_renewable_share_percent": 53.05,
+    "avg_load_gw": 47.76,
+    "avg_residual_load_gw": 28.03,
     "peak_residual_load_gw": 46.8,
-    "residual_energy_gwh": 1377.5,
+    "residual_energy_gwh": 1345.7,
     "label": "B2"
   },
   {
@@ -386,17 +386,17 @@
     "band_lower_percent": 40.0,
     "band_upper_percent": 60.0,
     "start_date": "2026-08-16",
-    "end_date": "2026-08-18",
-    "length_days": 3,
+    "end_date": "2026-08-19",
+    "length_days": 4,
     "battery_bufferable_days": 1,
-    "critical_days": 2,
-    "min_renewable_share_percent": 42.3,
-    "avg_renewable_share_percent": 48.06666666666666,
-    "avg_load_gw": 47.52,
-    "avg_residual_load_gw": 30.8,
-    "peak_residual_load_gw": 45.6,
-    "residual_energy_gwh": 2217.8,
-    "label": "B3"
+    "critical_days": 3,
+    "min_renewable_share_percent": 41.6,
+    "avg_renewable_share_percent": 50.825,
+    "avg_load_gw": 47.24,
+    "avg_residual_load_gw": 28.88,
+    "peak_residual_load_gw": 45.17,
+    "residual_energy_gwh": 2772.7,
+    "label": "B4"
   },
   {
     "id": "DE-B-2026-22",
@@ -549,5 +549,24 @@
     "peak_residual_load_gw": 50.25,
     "residual_energy_gwh": 1699.0,
     "label": "B2"
+  },
+  {
+    "id": "DE-B-2026-30",
+    "country": "de",
+    "category": "B",
+    "band_lower_percent": 40.0,
+    "band_upper_percent": 60.0,
+    "start_date": "2026-11-03",
+    "end_date": "2026-11-06",
+    "length_days": 4,
+    "battery_bufferable_days": 1,
+    "critical_days": 3,
+    "min_renewable_share_percent": 40.8,
+    "avg_renewable_share_percent": 46.3,
+    "avg_load_gw": 60.38,
+    "avg_residual_load_gw": 38.46,
+    "peak_residual_load_gw": 50.76,
+    "residual_energy_gwh": 3692.3,
+    "label": "B4"
   }
 ]
