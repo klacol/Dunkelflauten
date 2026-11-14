@@ -128,22 +128,23 @@ Energy-Charts revises historical values).
 
 ## Yearly summary DE
 
-The table below summarizes the number of Dunkelflaute events and their total
-duration per calendar year for Germany. `Days A` and `Days B` sum the full
-length of events in each category, including the first, battery-bufferable day;
-they are distinct from critical days. The categories are mutually exclusive:
-`A` covers renewable shares from 0 % to below 40 %, while `B` covers 40 % to
-below 60 %. `Total` is the row sum of A and B event counts.
+The table below summarizes the number of Dunkelflaute events and critical days
+per calendar year for Germany. `Critical days A` and `Critical days B` sum the
+days in each category after excluding the first, battery-bufferable day of
+every event. The categories are mutually exclusive: `A` covers renewable
+shares from 0 % to below 40 %, while `B` covers 40 % to below 60 %.
+`Total Dunkelflauten` is the row sum of A and B event counts, and `Total
+critical days` is the sum of critical days in both categories.
 
-| Year | Dunkelflauten A (0-40 %) | Days A | Dunkelflauten B (40-60 %) | Days B | Total Dunkelflauten | Total days |
+| Year | Dunkelflauten A (0-40 %) | Critical days A | Dunkelflauten B (40-60 %) | Critical days B | Total Dunkelflauten | Total critical days |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: |
-| 2020 | [24](data/de/2020/dunkelflauten_A.csv) | 90 | [44](data/de/2020/dunkelflauten_B.csv) | 145 | 68 | 235 |
-| 2021 | [38](data/de/2021/dunkelflauten_A.csv) | 149 | [34](data/de/2021/dunkelflauten_B.csv) | 111 | 72 | 260 |
-| 2022 | [19](data/de/2022/dunkelflauten_A.csv) | 84 | [35](data/de/2022/dunkelflauten_B.csv) | 137 | 54 | 221 |
-| 2023 | [17](data/de/2023/dunkelflauten_A.csv) | 55 | [31](data/de/2023/dunkelflauten_B.csv) | 117 | 48 | 172 |
-| 2024 | [11](data/de/2024/dunkelflauten_A.csv) | 42 | [41](data/de/2024/dunkelflauten_B.csv) | 131 | 52 | 173 |
-| 2025 | [16](data/de/2025/dunkelflauten_A.csv) | 57 | [37](data/de/2025/dunkelflauten_B.csv) | 115 | 53 | 172 |
-| 2026* | [7](data/de/2026/dunkelflauten_A.csv) | 20 | [30](data/de/2026/dunkelflauten_B.csv) | 93 | 37 | 113 |
+| 2020 | [24](data/de/2020/dunkelflauten_A.csv) | 66 | [44](data/de/2020/dunkelflauten_B.csv) | 101 | 68 | 167 |
+| 2021 | [38](data/de/2021/dunkelflauten_A.csv) | 111 | [34](data/de/2021/dunkelflauten_B.csv) | 77 | 72 | 188 |
+| 2022 | [19](data/de/2022/dunkelflauten_A.csv) | 65 | [35](data/de/2022/dunkelflauten_B.csv) | 102 | 54 | 167 |
+| 2023 | [17](data/de/2023/dunkelflauten_A.csv) | 38 | [31](data/de/2023/dunkelflauten_B.csv) | 86 | 48 | 124 |
+| 2024 | [11](data/de/2024/dunkelflauten_A.csv) | 31 | [41](data/de/2024/dunkelflauten_B.csv) | 90 | 52 | 121 |
+| 2025 | [16](data/de/2025/dunkelflauten_A.csv) | 41 | [37](data/de/2025/dunkelflauten_B.csv) | 78 | 53 | 119 |
+| 2026* | [7](data/de/2026/dunkelflauten_A.csv) | 13 | [30](data/de/2026/dunkelflauten_B.csv) | 63 | 37 | 76 |
 
 \* 2026 is the current, incomplete year and will change when new Energy-Charts
 data becomes available.
