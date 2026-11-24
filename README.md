@@ -144,7 +144,7 @@ critical days` is the sum of critical days in both categories.
 | 2023 | [17](data/de/2023/dunkelflauten_A.csv) | 38 | [31](data/de/2023/dunkelflauten_B.csv) | 86 | 48 | 124 |
 | 2024 | [11](data/de/2024/dunkelflauten_A.csv) | 31 | [41](data/de/2024/dunkelflauten_B.csv) | 90 | 52 | 121 |
 | 2025 | [16](data/de/2025/dunkelflauten_A.csv) | 41 | [37](data/de/2025/dunkelflauten_B.csv) | 78 | 53 | 119 |
-| 2026* | [7](data/de/2026/dunkelflauten_A.csv) | 13 | [30](data/de/2026/dunkelflauten_B.csv) | 63 | 37 | 76 |
+| 2026* | [7](data/de/2026/dunkelflauten_A.csv) | 13 | [32](data/de/2026/dunkelflauten_B.csv) | 65 | 39 | 78 |
 
 \* 2026 is the current, incomplete year and will change when new Energy-Charts
 data becomes available.
