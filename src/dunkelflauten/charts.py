@@ -73,7 +73,7 @@ def _stacked_bar_chart(
     creation_date = datetime.now().strftime("%d.%m.%Y")
     fig.text(
         0.5, 0.01,
-        f"As of: {creation_date} | @klacol",
+        f"As of: {creation_date} | @energycharts | @klacol | CC BY 4.0",
         ha="center",
         va="bottom",
         fontsize=9,
